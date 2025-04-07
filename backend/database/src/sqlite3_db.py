@@ -4,8 +4,9 @@ import aiosqlite
 
 class Sqlite3db(ISQLDatabase):
 
-    def __init__(self, database: str):
+    def __init__(self, database: str, filestore: str):
         self.database = database
+        self.filestore = filestore
     
     async def set_text(self, text, table, column, id=1) -> bool:
         try:

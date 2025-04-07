@@ -2,7 +2,7 @@ import unittest
 import asyncio
 from src.sqlite3_db import Sqlite3db
 
-db = Sqlite3db("tests/sqlite.db")
+db = Sqlite3db("tests/sqlite.db", "tests")
 
 async def get_set_reserve_status(text: str):
     diff_text = text + "fuck"

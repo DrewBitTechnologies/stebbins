@@ -25,12 +25,20 @@ cur.execute("""
             )""")
 
 cur.execute("""
+            INSERT INTO guide_screen DEFAULT VALUES
+            """)
+
+cur.execute("""
             CREATE TABLE donate_screen (
             id INTEGER PRIMARY KEY,
             donate_text TEXT, 
             donation_website_link TEXT,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )""")
+
+cur.execute("""
+            INSERT INTO donate_screen DEFAULT VALUES
+            """)
 
 cur.execute("""
             CREATE TABLE emergency_screen (
@@ -43,6 +51,10 @@ cur.execute("""
             )""")
 
 cur.execute("""
+            INSERT INTO emergency_screen DEFAULT VALUES
+            """)
+
+cur.execute("""
             CREATE TABLE safety_screen (
             id INTEGER PRIMARY KEY,
             bg_img TEXT, 
@@ -53,12 +65,20 @@ cur.execute("""
             )""")
 
 cur.execute("""
+            INSERT INTO safety_screen DEFAULT VALUES
+            """)
+
+cur.execute("""
             CREATE TABLE rules_screen (
             id INTEGER PRIMARY KEY,
             bg_img TEXT, 
             rules_img TEXT,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )""")
+
+cur.execute("""
+            INSERT INTO rules_screen DEFAULT VALUES
+            """)
 
 cur.execute("""
             CREATE TABLE rules (
@@ -78,6 +98,10 @@ cur.execute("""
             )""")
 
 cur.execute("""
+            INSERT INTO about_screen DEFAULT VALUES
+            """)
+
+cur.execute("""
             CREATE TABLE share_screen (
             id INTEGER PRIMARY KEY,
             bg_img TEXT, 
@@ -87,9 +111,15 @@ cur.execute("""
             )""")
 
 cur.execute("""
+            INSERT INTO share_screen DEFAULT VALUES
+            """)
+
+cur.execute("""
             CREATE TABLE reports (
             id INTEGER PRIMARY KEY, 
-            name TEXT, 
+            first_name TEXT, 
+            middle_name TEXT, 
+            last_name TEXT, 
             phone_number TEXT, 
             email TEXT, 
             report_text TEXT, 
