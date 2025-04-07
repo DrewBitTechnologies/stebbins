@@ -1,6 +1,6 @@
 .DS_Store
 .coverage
 .venv
-__pycace__
+__pycache__/
 sqlite.db
 
