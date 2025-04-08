@@ -8,7 +8,11 @@ class ISQLDatabase(ABC):
         pass
 
     # @abstractmethod
-    # async def set_image(self, data: bytes, table: str, column: str, id: int=1) -> bool:
+    # async def set_image_url(self, url: str, table: str, column: str, id: int=1) -> bool:
+    #     pass
+
+    # @abstractmethod
+    # async def set_image_bytes(self, data: bytes, path: str, filename: str) -> bool:
     #     pass
 
     @abstractmethod
