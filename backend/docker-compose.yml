@@ -1,0 +1,16 @@
+services:
+    directus:
+        image: directus/directus:11.5.1
+        ports:
+            - 8055:8055
+        volumes:
+            - ./database:/directus/database
+            - ./uploads:/directus/uploads
+            - ./extensions:/directus/extensions
+        environment:
+            SECRET: "85fc17f7069acd39a5c636cd0a6530651096128da447959f5e250824857dc559"
+            ADMIN_EMAIL: "admin@sccr.com"
+            ADMIN_PASSWORD: "password"
+            DB_CLIENT: "sqlite3"
+            DB_FILENAME: "/directus/database/data.db"
+            WEBSOCKETS_ENABLED: "true"
