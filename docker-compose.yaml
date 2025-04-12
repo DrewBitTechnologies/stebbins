@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build:
+      context: ./frontend/web
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+  
+  backend:
+    build:
+      context: ./backend
+    expose:
+      - 8000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
