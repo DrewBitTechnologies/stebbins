@@ -2,21 +2,29 @@ services:
   frontend:
     build:
       context: ./frontend/web
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-    networks:
-      - app-network
+    expose:
+      - 7999
   
   backend:
     build:
       context: ./backend
     expose:
       - 8000
-    networks:
-      - app-network
 
-networks:
-  app-network:
-    driver: bridge
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --keep-until-expiring --email drewhelbig21@gmail.com -d helbigtechnologies.com --agree-tos
