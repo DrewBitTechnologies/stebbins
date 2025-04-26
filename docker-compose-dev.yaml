@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    expose:
+      - 8000
+
+  frontend:
+    build:
+      context: ./frontend/web
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/dev_nginx.conf:/etc/nginx/nginx.conf
+
+volumes:
+  pgdata:

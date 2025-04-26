@@ -1,6 +1,6 @@
 import unittest
 import asyncio
-from src.sqlite3_db import Sqlite3db
+from backend.database.src.postgresql_db import Sqlite3db
 
 db = Sqlite3db("tests/sqlite.db", "tests")
 
