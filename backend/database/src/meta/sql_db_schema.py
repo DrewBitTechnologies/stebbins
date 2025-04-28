@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlmodel import Field, Session, SQLModel, create_engine, select
 
-class Guide_Element_Text(SQLModel, table=True):
+class Guide(SQLModel, table=True):
     id: int = Field(default=None)
     element: int = Field(index=True, foreign_key="Guide_Element.id")
     common_name: str = Field(default="common name")

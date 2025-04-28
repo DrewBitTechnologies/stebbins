@@ -1,20 +1,11 @@
 services:
-  db:
-    image: postgres
-    restart: always
-    shm_size: 128mb
-    environment:
-      POSTGRES_PASSWORD: password
-    ports:
-      - 5432:5432
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
   backend:
     build:
       context: ./backend
     expose:
       - 8000
+    volumes:
+      - ./backend/database/data:/app/data
 
   frontend:
     build:
@@ -33,6 +24,3 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     command: certonly --webroot -w /var/www/certbot --keep-until-expiring --email drewhelbig21@gmail.com -d helbigtechnologies.com --agree-tos
-
-volumes:
-  pgdata:

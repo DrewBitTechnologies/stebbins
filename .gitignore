@@ -1,6 +1,9 @@
 .DS_Store
 .coverage
-.venv
+.venv/
 __pycache__/
 sqlite.db
 certbot/
+.env
+data/
+.vscode
