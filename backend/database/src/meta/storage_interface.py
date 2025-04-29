@@ -18,7 +18,7 @@ class FileStorageInterface:
         pass
 
 class LocalFileStorage(FileStorageInterface):
-    def __init__(self, base_dir="/app/app_data/images"):
+    def __init__(self, base_dir="/app/data/images"):
         self.base_dir = base_dir
         os.makedirs(self.base_dir, exist_ok=True)
     
